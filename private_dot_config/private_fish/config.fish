@@ -6,10 +6,9 @@ set -x VISUAL vim
 set -x EDITOR $VISUAL
 set -x JAVA_HOME $JAVA21_HOME
 
-set -x PATH "$HOME/bin" \
-            "$HOME/.rd/bin" \
-            "/opt/homebrew/opt/curl/bin"  \
-            $PATH
+fish_add_path "$HOME/bin"
+fish_add_path "$HOME/.rd/bin"
+fish_add_path "/opt/homebrew/opt/curl/bin"
 
 # Use Vim keybindings
 fish_vi_key_bindings
