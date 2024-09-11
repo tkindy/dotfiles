@@ -7,8 +7,11 @@ set -x EDITOR $VISUAL
 set -x JAVA_HOME $JAVA21_HOME
 
 fish_add_path "$HOME/bin"
+
+{{ if eq .machine "work" -}}
 fish_add_path "$HOME/.rd/bin"
 fish_add_path "/opt/homebrew/opt/curl/bin"
+{{- end }}
 
 # Use Vim keybindings
 fish_vi_key_bindings
