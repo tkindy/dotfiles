@@ -4,13 +4,20 @@ set -g fish_greeting ""
 # Set environment variables
 set -x VISUAL vim
 set -x EDITOR $VISUAL
-set -x JAVA_HOME $JAVA21_HOME
+set -x BREW_HOME "/opt/homebrew"
 
 fish_add_path "$HOME/bin"
+fish_add_path "$BREW_HOME/bin"
+
+{{ if eq .machine "personal" -}}
+fish_add_path "$HOME/.cargo/bin"
+{{- end }}
 
 {{ if eq .machine "work" -}}
+set -x JAVA_HOME $JAVA21_HOME
+
 fish_add_path "$HOME/.rd/bin"
-fish_add_path "/opt/homebrew/opt/curl/bin"
+fish_add_path "$BREW_HOME/opt/curl/bin"
 {{- end }}
 
 # Use Vim keybindings
