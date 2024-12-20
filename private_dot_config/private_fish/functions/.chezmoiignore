@@ -1,2 +1,7 @@
 repo_personal.fish
 repo_work.fish
+
+{{- if ne .machine "work" }}
+
+internal.fish
+{{- end }}
