@@ -5,8 +5,14 @@
 
 # Python artifacts
 *.pyc
-*.egg-info
+*.egg
+*.egg-info/
 .pydevproject
+.venv
+venv/
+.ipynb_checkpoints
+.Python
+pip-log.txt
 
 # Frontend
 node_modules/
@@ -20,12 +26,8 @@ target/
 # VSCode files
 .vscode/
 
-# Eclipse files
-.classpath
-.project
-.settings
-.factorypath
-.checkstyle
+# Java
+*.hprof
 
 # IntelliJ files
 .idea
@@ -41,7 +43,17 @@ target/
 .lsp/
 .nrepl-port
 
-.develocity/
-
+{{ if eq .machine "work" -}}
+# `repo` visit times
 .visited
 .visited2
+
+# Work misc
+.develocity/
+hadoop-krb5-configs/
+hadoop-keytabs/
+dist/
+nosetests.xml
+.coverage
+.coverage.*
+{{- end }}
