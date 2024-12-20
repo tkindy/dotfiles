@@ -1,0 +1,5 @@
+{{- if eq .machine "work" -}}
+{{- include "private_dot_config/private_fish/functions/repo_work.fish" -}}
+{{- else if eq .machine "personal" -}}
+{{- include "private_dot_config/private_fish/functions/repo_personal.fish" -}}
+{{- end -}}
