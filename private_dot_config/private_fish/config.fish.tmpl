@@ -1,23 +1,24 @@
 # Clear greeting
 set -g fish_greeting ""
 
-# Set environment variables
 set -x VISUAL vim
 set -x EDITOR $VISUAL
 set -x BREW_HOME "/opt/homebrew"
 set -x PROJECTS_HOME "$HOME/src"
 set -x BAT_THEME "Solarized (dark)"
 
+{{- if eq .machine "work" }}
+set -x JAVA_HOME $JAVA21_HOME
+{{- end }}
+
 fish_add_path "$HOME/bin"
 fish_add_path "$BREW_HOME/bin"
 
-{{ if eq .machine "personal" -}}
+{{- if eq .machine "personal" }}
 fish_add_path "$HOME/.cargo/bin"
 {{- end }}
 
-{{ if eq .machine "work" -}}
-set -x JAVA_HOME $JAVA21_HOME
-
+{{- if eq .machine "work" }}
 fish_add_path "$HOME/.rd/bin"
 fish_add_path "$BREW_HOME/opt/curl/bin"
 {{- end }}
