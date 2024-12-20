@@ -1,0 +1,47 @@
+*~
+*.swp
+*.orig
+.DS_Store
+
+# Python artifacts
+*.pyc
+*.egg-info
+.pydevproject
+
+# Frontend
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Generated files
+bin/
+target/
+
+# VSCode files
+.vscode/
+
+# Eclipse files
+.classpath
+.project
+.settings
+.factorypath
+.checkstyle
+
+# IntelliJ files
+.idea
+*.iml
+.gradle-enterprise/
+
+.fleet/
+
+# Calva
+.calva/
+.clj-kondo/
+.cpcache/
+.lsp/
+.nrepl-port
+
+.develocity/
+
+.visited
+.visited2
