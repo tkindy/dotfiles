@@ -5,5 +5,12 @@ args = ["--new-window", "--wait"]
 [diff]
 pager = "less -R"
 
+[merge]
+command = "zsh"
+args = [
+    "-c",
+    "cp {{ "{{" }} .Target {{ "}}" }} {{ "{{" }} .Target {{ "}}" }}.base && code --new-window --wait --merge {{ "{{" }} .Destination {{ "}}" }} {{ "{{" }} .Target {{ "}}" }} {{ "{{" }} .Target {{ "}}" }}.base {{ "{{" }} .Source {{ "}}" }}",
+]
+
 [data]
 machine = {{ if eq .chezmoi.hostname "MDQXJCWPWN" -}} "work" {{- else -}} "personal" {{- end }}
