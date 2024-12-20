@@ -6,4 +6,4 @@ args = ["--new-window", "--wait"]
 pager = "less -R"
 
 [data]
-machine = {{- if eq .chezmoi.hostname "MDQXJCWPWN" }} "work" {{ else }} "personal" {{- end }}
+machine = {{ if eq .chezmoi.hostname "MDQXJCWPWN" -}} "work" {{- else -}} "personal" {{- end }}
