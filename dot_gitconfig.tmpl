@@ -1,0 +1,36 @@
+[user]
+	email = {{ if eq .machine "work" -}} tkindy@hubspot.com {{- else if eq .machine "personal" -}} tylerkindy@gmail.com {{- end }}
+	name = Tyler Kindy
+	signingkey = /Users/tkindy/.ssh/id_rsa.pub
+[core]
+	hooksPath = /Users/tkindy/.git_hooks
+	excludesfile = /Users/tkindy/.gitignore_global
+[commit]
+	gpgsign = true
+[remote "origin"]
+	prune = true
+[pull]
+	rebase = true
+[advice]
+	detachedHead = false
+	macheteEditorSelection = false
+[rebase]
+	updateRefs = true
+	autosquash = true
+[gpg]
+	format = ssh
+[rerere]
+	enabled = true
+[merge]
+	conflictstyle = zdiff3
+[diff]
+	algorithm = histogram
+
+{{ if eq .machine "work" -}}
+[hub]
+	host = git.hubteam.com
+[machete "github"]
+	domain = git.hubteam.com
+[init]
+	defaultBranch = master
+{{- end }}
