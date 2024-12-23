@@ -1,0 +1,3 @@
+{{ if ne .machine "personal" -}}
+config
+{{- end }}

@@ -1,0 +1,23 @@
+Include /Users/tkindy/.colima/ssh_config
+
+Host cargo
+  HostName cargo.internal
+  User tyler
+
+Host synchro
+  HostName synchro.tylerkindy.com
+  User synchro
+  IdentityFile ~/.ssh/synchro_rsa
+  IdentitiesOnly yes
+
+Host betrayal
+  HostName synchro.tylerkindy.com
+  User betrayal
+  IdentityFile ~/.ssh/betrayal_rsa
+  IdentitiesOnly yes
+
+Host jeopardy
+  HostName synchro.tylerkindy.com
+  User jeopardy
+  IdentityFile ~/.ssh/jeopardy_rsa
+  IdentitiesOnly yes
