@@ -16,9 +16,12 @@ fish_add_path "$BREW_HOME/bin"
 
 {{- if eq .machine "personal" }}
 fish_add_path "$HOME/.cargo/bin"
-{{- end }}
 
-{{- if eq .machine "work" }}
+# Ruby
+fish_add_path "$BREW_HOME/opt/ruby/bin"
+fish_add_path "$BREW_HOME/lib/ruby/gems/3.3.0/bin"
+
+{{- else if eq .machine "work" }}
 fish_add_path "$HOME/.rd/bin"
 fish_add_path "$BREW_HOME/opt/curl/bin"
 {{- end }}
