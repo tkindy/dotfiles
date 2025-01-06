@@ -1,3 +1,0 @@
-{{- if ne .machine "work" }}
-com.tylerkindy.add-ssh-key.plist
-{{- end }}
