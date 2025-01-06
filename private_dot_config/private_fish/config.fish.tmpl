@@ -9,6 +9,7 @@ set -x BAT_THEME "Solarized (dark)"
 
 {{- if eq .machine "work" }}
 set -x JAVA_HOME $JAVA21_HOME
+set -x PYENV_ROOT "$HOME/.pyenv"
 {{- end }}
 
 fish_add_path "$HOME/bin"
@@ -24,6 +25,7 @@ fish_add_path "$BREW_HOME/lib/ruby/gems/3.3.0/bin"
 {{- else if eq .machine "work" }}
 fish_add_path "$HOME/.rd/bin"
 fish_add_path "$BREW_HOME/opt/curl/bin"
+fish_add_path "$PYENV_ROOT/bin"
 {{- end }}
 
 # Use Vim keybindings
@@ -32,3 +34,7 @@ fish_vi_key_bindings
 set -x GPG_TTY (tty)
 
 starship init fish | source
+
+{{- if eq .machine "work" }}
+pyenv init - fish | source
+{{- end }}
