@@ -1,7 +1,6 @@
 Include /Users/tkindy/.colima/ssh_config
 
 Host cargo
-  HostName cargo.internal
   User tyler
 
 Host synchro
