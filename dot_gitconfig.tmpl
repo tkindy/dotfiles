@@ -25,8 +25,11 @@
 	conflictstyle = zdiff3
 [diff]
 	algorithm = histogram
+[init]
+	defaultBranch = {{ if eq .machine "work" -}} master {{- else -}} main {{- end }}
 
-{{ if eq .machine "work" -}}
+{{- if eq .machine "work" }}
+
 [hub]
 	host = git.hubteam.com
 [machete "github"]
