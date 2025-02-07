@@ -40,7 +40,9 @@ if status --is-interactive
   abbr --add --global gmc 'git machete discover'
   abbr --add --global gmt 'git machete traverse --fetch --whole --no-push-untracked'
   abbr --add --global gma 'git machete add'
+  abbr --add --global gmu 'git machete update'
   abbr --add --global gmr 'git machete reapply'
+  abbr --add --global gmdu 'git machete delete-unmanaged'
 
   # GitHub CLI
   abbr --add --global ghpr 'gh pr create --web'
@@ -51,5 +53,9 @@ if status --is-interactive
 
   {{- if eq .machine "work" }}
   abbr --add --global mdcv 'mvnd clean verify'
+  {{- end }}
+
+  {{ if eq .machine "work" -}}
+  abbr --add --global kubectl hs-kubectl
   {{- end }}
 end
