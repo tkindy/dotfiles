@@ -14,9 +14,6 @@ function repo
 
   cd $repo_path
 
-  # Track when I visit each repo
-  date +%s >> .visited2
-
   git fetch
 
   set branch $argv[2]
