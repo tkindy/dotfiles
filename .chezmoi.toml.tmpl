@@ -1,6 +1,5 @@
 [edit]
-command = "code"
-args = ["--new-window", "--wait"]
+command = "nvim"
 
 [diff]
 pager = "less -R"
@@ -13,4 +12,4 @@ args = [
 ]
 
 [data]
-machine = {{ if eq .chezmoi.hostname "MDQXJCWPWN" "FMXV3X0Q7Q" -}} "work" {{- else -}} "personal" {{- end }}
+machine = {{ if eq .chezmoi.hostname "Olympic" -}} "work" {{- else -}} "personal" {{- end }}

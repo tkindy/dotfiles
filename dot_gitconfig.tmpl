@@ -1,7 +1,11 @@
 [user]
-	email = {{ if eq .machine "work" -}} tkindy@hubspot.com {{- else if eq .machine "personal" -}} tylerkindy@gmail.com {{- end }}
+	email = {{ if eq .machine "work" -}} tyler@ambrook.com {{- else if eq .machine "personal" -}} tylerkindy@gmail.com {{- end }}
 	name = Tyler Kindy
-	signingkey = /Users/tkindy/.ssh/id_rsa.pub
+	signingkey = {{ if eq .machine "work" -}}
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHjxhH7fHBHU7RAk8EPIqdOKaNNIqtFcoiiUP19a4Vee
+    {{- else if eq .machine "personal" -}}
+      /Users/tkindy/.ssh/id_rsa.pub
+    {{- end }}
 [core]
 	hooksPath = /Users/tkindy/.git_hooks
 	excludesfile = /Users/tkindy/.gitignore_global
@@ -21,6 +25,10 @@
 	autosquash = true
 [gpg]
 	format = ssh
+{{- if eq .machine "work" }}
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+{{- end }}
 [rerere]
 	enabled = true
 [merge]
@@ -28,12 +36,4 @@
 [diff]
 	algorithm = histogram
 [init]
-	defaultBranch = {{ if eq .machine "work" -}} master {{- else -}} main {{- end }}
-
-{{- if eq .machine "work" }}
-
-[hub]
-	host = git.hubteam.com
-[machete "github"]
-	domain = git.hubteam.com
-{{- end }}
+	defaultBranch = main
